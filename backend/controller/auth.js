@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(email, password);
 
     // hashing password to be stored in encrypted form
     const salt = await bcrypt.genSalt(10);
