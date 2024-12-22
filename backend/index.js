@@ -27,4 +27,4 @@ app.get("/", function (req, res) {
 app.use("/api/auth", authRoutes);
 
 // running port
-app.listen(3000);
+app.listen(4000);
