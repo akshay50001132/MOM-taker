@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 
 // import route files
@@ -8,6 +9,12 @@ const authRoutes = require("./routes/auth");
 
 // read json payload
 app.use(express.json());
+app.use(
+  cors({
+    origin: process.env.ALLOWED_ORIGIN,
+    credentials: true,
+  })
+);
 
 // mongodb connection
 mongoose
