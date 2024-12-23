@@ -26,6 +26,18 @@ export default {
           fourth: "#2b2b2b",
           fifth: "#333333",
         },
+
+        red: {
+          primary: "#ff4d4d", // Vibrant red for attention-grabbing elements
+          secondary: "#ff6666", // Soft red for backgrounds or subtle highlights
+          tertiary: "#ff8080", // Light red for accents
+        },
+
+        blue: {
+          primary: "#4a90e2", // Calming and trustworthy blue
+          secondary: "#6ab7ff", // Lighter blue for softer UI elements
+          tertiary: "#85b9ff", // Light blue for highlights or hover states
+        },
       },
     },
   },

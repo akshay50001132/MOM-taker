@@ -11,3 +11,15 @@
 body {
   @apply bg-white-primary;
 }
+
+@layer base {
+  h1 {
+    @apply text-black-primary text-2xl font-bold;
+  }
+  h2 {
+    @apply text-black-primary text-xl font-semibold;
+  }
+  h3 {
+    @apply text-black-primary text-lg font-medium;
+  }
+}
