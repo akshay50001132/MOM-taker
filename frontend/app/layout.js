@@ -17,13 +17,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${nunito.className} lg:py-5 lg:px-10 p-4`}>
         <nav className="flex justify-between mb-5 font-bold">
-          <p>MOM</p>
+          <Link href="/">MOM</Link>
           <div className="flex">
             <Link className="text-red-primary" href="/login">
               Login
             </Link>
             <p className="mx-1">/</p>
-            <Link className="text-red-primary" href="/login">
+            <Link className="text-red-primary" href="/signup">
               SignUp
             </Link>
           </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -28,9 +29,21 @@ export default function LoginPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 items-start"
+    >
       <div>
-        <label>Email</label>
+        <h1>Welcome back</h1>
+        <span className="text-sm">
+          Don't have an account?{" "}
+          <Link href="/signup" className="text-red-primary underline">
+            Signup
+          </Link>
+        </span>
+      </div>
+      <div className="flex flex-col w-80">
+        <label className="text-black-tertiary">Email</label>
         <input
           type="email"
           {...register("email", {
@@ -40,11 +53,12 @@ export default function LoginPage() {
               message: "Invalid email address",
             },
           })}
+          className="py-1 px-2 border border-black-fifth outline-none rounded"
         />
-        {errors.email && <div>{errors.email.message}</div>}
+        <div>{errors.email ? errors.email.message : "\u00A0"}</div>
       </div>
-      <div>
-        <label>Password</label>
+      <div className="flex flex-col w-80">
+        <label className="text-black-tertiary">Password</label>
         <input
           type="password"
           {...register("password", {
@@ -58,10 +72,16 @@ export default function LoginPage() {
               message: "Password must be at most 15 characters",
             },
           })}
+          className="py-1 px-2 border border-black-fifth outline-none rounded"
         />
-        {errors.password && <div>{errors.password.message}</div>}
+        <div>{errors.password ? errors.password.message : "\u00A0"}</div>
       </div>
-      <button type="submit">Login</button>
+      <button
+        className="bg-black-primary text-white-primary py-2 px-8 rounded"
+        type="submit"
+      >
+        Login
+      </button>
     </form>
   );
 }
