@@ -22,7 +22,7 @@ const signup = async (req, res) => {
     // 30 days in milliseconds
     const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
 
-    res
+    return res
       .status(200)
       .cookie("token", token, {
         httpOnly: true,
@@ -63,7 +63,7 @@ const login = async (req, res) => {
       // 30 days in milliseconds
       const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
 
-      res
+      return res
         .status(200)
         .cookie("token", token, {
           httpOnly: true,

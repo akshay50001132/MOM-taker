@@ -1,32 +1,32 @@
-"use client";
-
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
-export default function SignUpPage() {
+export default function LoginPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
+
   const onSubmit = async (data) => {
-    console.log("Form values:", data);
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json", // Specify the content type
-          },
-          body: JSON.stringify({
-            ...data,
-          }),
-        }
-      );
-      const user = await res.json();
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json", // Specify the content type
+        },
+        body: JSON.stringify({
+          ...data,
+        }),
+      });
+      if (res.status == 200) {
+        router.push("/");
+      }
     } catch (error) {}
   };
 
@@ -36,11 +36,11 @@ export default function SignUpPage() {
       className="flex flex-col gap-4 items-start"
     >
       <div>
-        <h1>Create an account</h1>
+        <h1>Welcome back</h1>
         <span className="text-sm">
-          Already have an account?{" "}
-          <Link href="/login" className="text-red-primary underline">
-            Login
+          Don't have an account?{" "}
+          <Link href="/signup" className="text-red-primary underline">
+            Signup
           </Link>
         </span>
       </div>
@@ -82,7 +82,7 @@ export default function SignUpPage() {
         className="bg-black-primary text-white-primary py-2 px-8 rounded"
         type="submit"
       >
-        Sign up
+        Login
       </button>
     </form>
   );

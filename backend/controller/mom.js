@@ -23,7 +23,6 @@ const getSelfMoms = async (req, res) => {
     const moms = await Mom.find({ owner: req.user });
     res.json({
       moms: [...moms],
-      message: "mom created successfully",
     });
   } catch (error) {
     console.log(error);
