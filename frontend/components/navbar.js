@@ -51,9 +51,12 @@ export default function Navbar() {
     <nav className="flex justify-between mb-5 font-bold items-center">
       <Link href="/">MOM</Link>
       <div className="flex gap-10 items-center">
-        <button className="bg-black-primary text-white-primary py-1 px-2 rounded">
+        <Link
+          href="/create"
+          className="bg-black-primary text-white-primary py-1 px-2 rounded"
+        >
           Create MOM
-        </button>
+        </Link>
         {isLoggedIn ? (
           <div className="text-red-primary" onClick={() => logout()}>
             Logout
