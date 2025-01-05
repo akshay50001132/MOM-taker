@@ -5,7 +5,7 @@ const { isAuthenticated } = require("../utils/isAuthenticated");
 
 // Define the login routes
 router.post("/create", isAuthenticated, mom.create);
-router.get("/getSelfMoms", isAuthenticated, mom.getSelfMoms);
+router.get("/getMoms", isAuthenticated, mom.getMoms);
 router.get("/:id", isAuthenticated, mom.getMomById);
 router.put("/:id", isAuthenticated, mom.updateMomById);
 

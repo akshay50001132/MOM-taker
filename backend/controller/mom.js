@@ -18,12 +18,10 @@ const create = async (req, res) => {
 };
 
 // return moms created by logged in user
-const getSelfMoms = async (req, res) => {
+const getMoms = async (req, res) => {
   try {
     const moms = await Mom.find({ owner: req.user });
-    res.json({
-      moms: [...moms],
-    });
+    res.json([...moms]);
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Server error, please try again later" });
@@ -35,9 +33,7 @@ const getMomById = async (req, res) => {
     const mom_id = req.params.id;
 
     const mom = await Mom.findById(mom_id);
-    res.json({
-      mom,
-    });
+    res.json(mom);
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Server error, please try again later" });
@@ -65,7 +61,7 @@ const updateMomById = async (req, res) => {
 
 module.exports = {
   create,
-  getSelfMoms,
+  getMoms,
   getMomById,
   updateMomById,
 };
